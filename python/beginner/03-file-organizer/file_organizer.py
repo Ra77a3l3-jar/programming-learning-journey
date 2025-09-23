@@ -1,10 +1,11 @@
 import os
 import shutil
+from config import FILE_TYPE_MAPPINGS
 
 def genDirs():
 
     print("Creating directories")
-    directories = ["Documents", "Audio_Video", "Coding", "Binaries", "Images"]
+    directories = list(FILE_TYPE_MAPPINGS.keys())
     parent_dir = os.getcwd()
 
     for i in directories:
@@ -15,25 +16,10 @@ def genDirs():
     print('='*20)
 
 def mapping():
-
-    docs = ('.docx', '.doc', '.txt', '.pdf', '.ppt', '.md')
-    code = ('.py', '.c', '.java', '.rs', '.zig', '.cpp', '.s')
-    image = ('.pgn', '.jpeg', '.svg', '.jpg', '.gif')
-    video_audio = ('.mp4', '.mp3')
-    binaries = ('.bin', '.exe', '.deb', '.rmp')
-
     ext_to_dir = {}
-    for ext in docs:
-        ext_to_dir[ext] = "Documents"
-    for ext in code:
-        ext_to_dir[ext] = "Coding"
-    for ext in image:
-        ext_to_dir[ext] = "Images"
-    for ext in video_audio:
-        ext_to_dir[ext] = "Audio_Video"
-    for ext in binaries:
-        ext_to_dir[ext] = "Binaries"
-
+    for folder, extensions in FILE_TYPE_MAPPINGS.items():
+        for ext in extensions:
+            ext_to_dir[ext.lower()] = folder
     return ext_to_dir
 
 def menu():
@@ -61,8 +47,9 @@ def main():
                     if ext in ext_to_dir:
                         dest_folder = ext_to_dir[ext]
                         shutil.move(e.path, os.path.join(dest_folder, e.name))
+                        print(f"Moving {e.name} → {dest_folder}/")
                     else:
-                        print(f"Skipping {e.name}: extension {ext} not recognized.")
+                        print(f"Skipping {e.name} (unknown file type)")
                         
     except PermissionError:
         print("Permission Denied!")
