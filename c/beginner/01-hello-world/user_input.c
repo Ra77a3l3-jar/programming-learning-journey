@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "user_input.h"
 
 char* getName() {
     char temp[256];
-    
     printf("What's your name? ");
     scanf("%255s", temp);
 
@@ -26,5 +26,6 @@ int getAge() {
 
 void getNumbers(float *a, float *b) {
     printf("Enter two numbers: ");
-    scanf("%f %f", a, b); 
+    scanf("%f %f", a, b);
 }
+
