@@ -32,7 +32,7 @@ void options(int choice) {
             return;
         case 0:
             printf("Exiting ... ");
-            exit(1);
+            exit(0);
         default:
             printf("Wrong input! Try again\n");
             return;            
@@ -61,7 +61,11 @@ int main(void) {
         int choice = -1;
 
         printf("Choose operation (0-8): ");
-        scanf("%d", &choice);
+        if (scanf("%d", &choice) != 1) {
+    printf("Invalid input! Please enter a number.\n");
+    while(getchar() != '\n'); // clear input buffer
+    continue;
+}
 
         options(choice);
 
