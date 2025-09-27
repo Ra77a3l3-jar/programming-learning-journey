@@ -31,7 +31,7 @@ void options(int choice) {
             fibonacci();
             return;
         case 0:
-            printf("Exiting ... ");
+            printf("Exiting ... \n");
             exit(0);
         default:
             printf("Wrong input! Try again\n");
