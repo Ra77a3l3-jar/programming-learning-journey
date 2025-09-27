@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+
 #include "operations.h"
 
 void options(int choice) {
 
     switch(choice) {
+        case 0:
+            printf("Exiting ... \n");
+            exit(0);
         case 1:
             additions();
             return;
@@ -30,9 +34,6 @@ void options(int choice) {
         case 8:
             fibonacci();
             return;
-        case 0:
-            printf("Exiting ... \n");
-            exit(0);
         default:
             printf("Wrong input! Try again\n");
             return;            
@@ -62,10 +63,10 @@ int main(void) {
 
         printf("Choose operation (0-8): ");
         if (scanf("%d", &choice) != 1) {
-    printf("Invalid input! Please enter a number.\n");
-    while(getchar() != '\n'); // clear input buffer
-    continue;
-}
+            printf("Invalid input! Please enter a number.\n");
+            while(getchar() != '\n'); // clear input buffer
+            continue;
+        }
 
         options(choice);
 
