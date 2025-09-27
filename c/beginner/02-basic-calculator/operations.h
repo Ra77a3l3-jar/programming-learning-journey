@@ -6,7 +6,7 @@ void subtraction();
 void multiplication();
 void division();
 void power();
-void square_root();
+void root();
 void factorial();
 void fibonacci();
 unsigned long long fibonacci_recursive(int n);

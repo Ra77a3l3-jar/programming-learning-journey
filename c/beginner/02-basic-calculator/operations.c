@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <math.h>
 #include "operations.h"
-#include "bits/types/cookie_io_functions_t.h"
 
 void additions() {
     float a, b;
@@ -12,7 +11,7 @@ void additions() {
     printf("Enter value number 2: ");
     scanf("%f", &b);
 
-    printf("Result: %f + %f = %f.3\n", a, b, a + b);
+    printf("Result: %f + %f = %.3f\n", a, b, a + b);
 }
 
 void subtraction() {
@@ -23,7 +22,7 @@ void subtraction() {
     printf("Enter value number 2: ");
     scanf("%f", &b);
 
-    printf("Result: %f - %f = %f.3\n", a, b, a- b);
+    printf("Result: %f - %f = %.3f\n", a, b, a- b);
 }
 
 void multiplication() {
@@ -35,7 +34,7 @@ void multiplication() {
     printf("Enter value number 2: ");
     scanf("%f", &b);
 
-    printf("Result: %f * %f = %f.3\n", a, b, a * b);
+    printf("Result: %f * %f = %.3f\n", a, b, a * b);
 }
 
 void division() {
@@ -56,7 +55,7 @@ void division() {
         }
     }
 
-    printf("Result: %f / %f = %f.3\n", a, b, a / b);
+    printf("Result: %f / %f = %.3f\n", a, b, a / b);
 }
 
 void power() {
@@ -93,14 +92,14 @@ void root() {
         printf("Cant do the root of a 0 with a negative index\n");
     } else {
         double result = pow(radicand, 1.0 / index);
-        printf("Result: %d-th root of %f.3 = %.6f\n", index, radicand, result);
+        printf("Result: %d-th root of %.3f = %.6f\n", index, radicand, result);
     }
 }
 
 void factorial() {
 
     int n;
-    unsigned long long result;
+    unsigned long long result = 1;
 
     printf("Enter the value of the number: ");
     scanf("%d", &n);
